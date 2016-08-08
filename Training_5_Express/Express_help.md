@@ -10,7 +10,7 @@ Basically, it's my notes that I'm sharing.
 ## Introduction
 
 Node.js si very low level.
-Express is a framework simplyfing usual actions actions done in http
+Express is a framework simplyfing usual actions done in http
 applications
 
 ## Installation
