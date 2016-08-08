@@ -1,7 +1,6 @@
 Handling modules with npm
 =========================
-The following memory aid has been made by :
-[olivier abrard](olivier.abrard@gmail.com) 
+
 It has been made to help, while learning with 
 [codeschool node.js courses](http://www.codeschool.com) I wanted to have
 something left as a physical support after the course. and here it is.
