@@ -79,6 +79,6 @@ The twittermock will return the following tweets :
 ]
 ```
 Note: only text property is relevent here as it is the only one that
-should be take into account by the ejs view.
+should be taken into account by the ejs view.
 
 Feel free to adapt, enhance, share, and so on ;)
