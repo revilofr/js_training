@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io.connect('http://localhost:8080');
+    //message from the server to the client
+    socket.on('messages', function (data){
+        alert(data.hello);
+    });
+
+    //message from the client to the server
+    $('#chat_form').submit(function(e){
+        var message = $('#chat_input').val();
+        e.preventDefault(); // to stop the form from submitting
+        socket.emit('messages', message);
+        //this.submit(); // If all the validations succeeded
+    });
+</script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat room with socket io</title>
+</head>
+<body>
+<form id="chat_form">
+    <input id="char_input" type="text">
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
