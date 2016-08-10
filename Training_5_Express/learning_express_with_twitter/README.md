@@ -9,7 +9,7 @@ If you don't know Code School, please, give it a try, it's a really
 good way to learn languages. [CodeSchool](http://www.codeschool.com)
 
 Anyway Chapter 5.1 could be a bit frustrating assuming that you try to
-really develop things as you learn it. As Gregg Pollack told us into the
+ develop things for real as you learn them. As Gregg Pollack told us into the
 video, Twitter api has changed since they created the Real time web 
 courses, and the provided code doesn't work anymore.
 
