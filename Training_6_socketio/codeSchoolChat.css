@@ -1,0 +1,32 @@
+h1 {
+    color:#606060;
+}
+#chat_div{
+    position: relative;
+    border: 1px solid #606060;
+    border-radius: 10px;
+    height: 600px;
+    width: 800px;
+}
+#user_list_div{
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    border-right: 1px solid #606060;
+    text-transform: uppercase;
+    font :"Lucida Console";
+    font-
+}
+#chat_box_div{
+    position: absolute;
+    right:0;
+    width: 599px;
+    height: 100%;
+}
+#chat_box_input_div{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #606060;
+    padding: 5px;
+}

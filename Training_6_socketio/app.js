@@ -19,7 +19,7 @@ io.on('connection', function(client){
     });
 
     // Emit the messages event on the client (Browser)
-    client.emit('messages', { hello: 'world'});
+    client.emit('welcome', { welcomeMessage: 'Welcome to this chat room !'});
 });
 
 

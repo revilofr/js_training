@@ -1,16 +1,20 @@
 <!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="description" content="This is a chatroom made from CodeSchool tutorial chapter 6: socket.io">
+<meta name="keywords" content="socket.io, node.js, codeschool, tutorial, coding">
+<meta name="author" content="revilofr">
 <script src="/socket.io/socket.io.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
     var socket = io.connect('http://localhost:8080');
     //message from the server to the client
-    socket.on('messages', function (data){
-        alert(data.hello);
+    socket.on('welcome', function (data) {
+        alert(data.welcomeMessage);
     });
 
     //message from the client to the server
-    $(document).ready(function(){/*code here*/
-        $('#chat_form').submit(function(){
+    $(document).ready(function () {/*code here*/
+        $('#chat_form').submit(function () {
             var message = $('#chat_input').val();
             socket.emit('messages', message);
             //this.submit(); // If all the validations succeeded
@@ -22,12 +26,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="codeSchoolChat.css">
     <title>Chat room with socket io</title>
 </head>
 <body>
-<form id="chat_form" action="">
-    <input id="chat_input" type="text">
-    <input type="submit" value="Submit">
-</form>
+<h1>Hello from Chattr</h1>
+<div id="chat_div">
+    <form id="chat_form" action="">
+        <div id="user_list_div">
+            <ul>
+                <li>user 1</li>
+                <li>user 2</li>
+            </ul>
+        </div>
+        <div id="chat_box_div">
+            <div id="chat box_output_div"></textarea></div>
+            <div id="chat_box_input_div">
+                <input id="chat_input" type="text">
+                <input type="submit" value="Submit">
+            </div>
+        </div>
+    </form>
+</div>
 </body>
 </html>
