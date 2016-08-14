@@ -28,4 +28,6 @@ app.get('/', function (req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
+app.use(express.static('css'));
+
 server.listen(8080);
