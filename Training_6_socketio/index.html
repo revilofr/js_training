@@ -7,10 +7,20 @@
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
     var socket = io.connect('http://localhost:8080');
-    //message from the server to the client
-    socket.on('welcome', function (data) {
-        alert(data.welcomeMessage);
+    var userList = [];
+    socket.on('connect', function(data){
+        $("#status").html('Connected to chattr');
+        var nickname = prompt("What is your nickname?");
+        socket.emit('join', nickname);
     });
+    socket.on('join', function (data) {
+        addUser(data);
+        displayUsers();
+    });
+    socket.on('messages', function (data) {
+        insertMessage(data);
+    });
+
 
     //message from the client to the server
     $(document).ready(function () {/*code here*/
@@ -22,6 +32,32 @@
         });
     });
 
+    //Ergonomic functions
+    function clearContents(element) {
+        element.value = '';
+    }
+    function setDefaultContents(element_id, default_value) {
+        document.getElementById(element_id).value = default_value;
+    }
+    function insertMessage(data) {
+        console.log('Just received data from server : ' + data);
+        //TODO add it to the message chat box
+    }
+    function addUser(userName){
+        userList.push(userName);
+    }
+    function displayUsers(){
+        if (null == userList){
+            return
+        }
+        var userListString = "<ul id='user_list_div_ul'>";
+        for (var i=0; i<userList.length; i++ ){
+            console.log("user : " + userList[i]);
+            userListString+= "<li>" + userList[i] +"</li>";
+        }
+        userListString += "</ul>";
+        $('#user_list_div').html(userListString);
+    }
 </script>
 <html lang="en">
 <head>
@@ -29,20 +65,19 @@
     <title>Chat room with socket io lala</title>
 </head>
 <body>
-<h1>Hello from Chattr lala</h1>
+<h1><div id="status">Connecting...</div></h1>
 <div id="chat_div">
     <form id="chat_form" action="">
         <div id="user_list_div">
-            <ul>
-                <li>user 1</li>
-                <li>user 2</li>
-            </ul>
+
         </div>
         <div id="chat_box_div">
-            <div id="chat box_output_div"></textarea></div>
+            <div id="chat box_output_div">
+
+            </div>
             <div id="chat_box_input_div">
-                <input id="chat_input" type="text">
-                <input type="submit" value="Submit">
+                <input id="chat_input" type="text" value="Type your message" onclick="clearContents(this)">
+                <input id="chat_submit" type="submit" value="Submit">
             </div>
         </div>
     </form>
