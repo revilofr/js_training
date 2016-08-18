@@ -8,12 +8,8 @@
 <script>
     var socket = io.connect('http://localhost:8080');
     var userList = [];
-    socket.on('connect', function(data){
-        $("#status").html('Connected to chattr');
-        var nickname = prompt("What is your nickname?");
-        socket.emit('join', nickname);
-    });
     socket.on('join', function (data) {
+        console.log("Receiving a join event [" + data +"]");
         addUser(data);
         displayUsers();
     });
@@ -30,6 +26,12 @@
             //this.submit(); // If all the validations succeeded
             return false;
         });
+    });
+
+    socket.on('connect', function(data){
+        $("#status").html('Connected to chattr');
+        var nickname = prompt("What is your nickname?");
+        socket.emit('join', nickname);
     });
 
     //Ergonomic functions

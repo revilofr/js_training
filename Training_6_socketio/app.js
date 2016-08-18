@@ -21,8 +21,10 @@ io.on('connection', function(client){
         console.log(name + " joined the chat");
         client.broadcast.emit('join', client.nickname);//tells everyone that a new one has joined the chat room
 
-        //provides the list of already connecter users to the upcomming user
+        //provides the list of already connected users to the upcomming user
+        console.log("Providing user list for [" + client.nickname+ "] : ");
         for (var i=0; i<userList.length; i++){
+            console.log("User ["+ userList[i] +"]  is connected");
             client.emit('join', userList[i]);
         }
     });
@@ -41,7 +43,7 @@ io.on('connection', function(client){
     });
 
     function disconnectUser(user){
-        client.broadcast.emit('disconnect', user);
+        //client.broadcast.emit('disconnect', user);
     }
 });
 
